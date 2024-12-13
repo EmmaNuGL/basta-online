@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basta - Lobby</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="lobby-container">
+        <h1>***Basta***</h1>
+        <div id="player-list">
+            <h2>Jugadores:</h2>
+            <ul id="player-names"></ul>
+        </div>
+        <link rel="stylesheet" href="lobby.css">
+
+       
+    </div>
+    <script src="lobby.js"></script>
+    <form id="lobby-form">
+        <h1>Basta - Lobby</h1>
+        
+        <label for="num-players">Número de jugadores:</label>
+        <select id="num-players"></select>
+        
+        <div id="player-names"></div>
+        
+        <label for="categories">Selecciona una Categoría:</label>
+        <select id="categories"></select>
+        
+        <button type="submit">¡Comenzar Juego!</button>
+    </form>
+    
+</body>
+</html>

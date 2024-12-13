@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Basta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1 id="category-title"></h1>
+
+        <!-- Mostrar la categoría seleccionada -->
+        <div id="category-display" class="game-info">
+            <h2 id="selected-category">Categoría: </h2>
+        </div>
+
+        <!-- Botón para personalizar la partida -->
+        <div id="customize-section">
+            <button id="customize-button">Personalizar la partida</button>
+        </div>
+
+        <!-- Sección de botones para elegir letra -->
+        <div id="letter-selection">
+            <p>Elige una letra:</p>
+            <div id="letters-container">
+                <!-- Los botones de letras se generarán dinámicamente -->
+            </div>
+        </div>
+
+        <div id="letter-display"></div>
+
+        <!-- Sección para ingresar respuesta -->
+        <div id="answer-section">
+            <label for="answer-input">Escribe tu respuesta:</label>
+            <input type="text" id="answer-input" placeholder="Respuesta..." disabled>
+            <button id="submit-answer" disabled>Enviar respuesta</button>
+        </div>
+
+        <!-- Mensaje de fin de juego -->
+        <div id="end-game-message" style="display: none;">
+            <h2>¡El tiempo se ha agotado o ya no hay letras disponibles!</h2>
+            <button id="restart-button">Reiniciar juego</button>
+        </div>
+
+        <!-- Sección para mostrar las respuestas y puntos -->
+        <div id="score-section">
+            <h3>Respuestas</h3>
+            <ul id="score-list"></ul>
+        </div>
+        <!--Lobby-->
+        <button id="stop-button" class="stop-button">Lobby</button> <!-- Botón Stop -->
+
+        <!-- Temporizador -->
+        <div id="timer">
+            <p>Tiempo restante: <span id="time-left">45</span> segundos</p>
+        </div>
+
+        <!-- Turno actual -->
+        <div id="turn-display">
+            <h2 id="current-player">Turno de: Jugador 1</h2>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const categoryDisplay = document.getElementById('selected-category');
+            const categoryTitle = document.getElementById('category-title');
+            const customizeButton = document.getElementById('customize-button');
+
+            let categories = ["Frutas", "Animales", "Ciudades", "Países", "Películas", "Deportes", "Profesiones", "Marcas", "Otra"];
+            let currentCategory = localStorage.getItem('selectedCategory') || categories[0];
+
+            const updateCategoryDisplay = () => {
+                categoryDisplay.textContent = `Categoría: ${currentCategory}`;
+                categoryTitle.textContent = currentCategory;
+            };
+
+            if (currentCategory === 'Otra') {
+                const newCategory = prompt('Ingresa una nueva categoría personalizada:');
+                if (newCategory) {
+                    currentCategory = newCategory;
+                    localStorage.setItem('selectedCategory', newCategory);
+                } else {
+                    currentCategory = categories[0]; // Default to the first category
+                }
+            }
+
+            updateCategoryDisplay();
+
+            customizeButton.addEventListener('click', () => {
+                const categoryList = categories.map(category => `<option value="${category}">${category}</option>`).join('');
+                const selectedCategory = prompt(`Elige una categoría:
+${categories.join(', ')}
+(O ingresa una nueva categoría personalizada)`);
+
+                if (selectedCategory && !categories.includes(selectedCategory)) {
+                    categories.push(selectedCategory);
+                }
+
+                if (selectedCategory) {
+                    currentCategory = selectedCategory;
+                    localStorage.setItem('selectedCategory', selectedCategory);
+                    updateCategoryDisplay();
+                }
+            });
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

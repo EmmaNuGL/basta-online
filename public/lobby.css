@@ -1,0 +1,89 @@
+/* General */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+form {
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    width: 400px;
+    text-align: center;
+}
+
+/* Títulos */
+h1 {
+    margin-bottom: 20px;
+    color: #007acc;
+    font-size: 24px;
+}
+
+/* Etiquetas y selectores */
+label {
+    display: block;
+    font-weight: bold;
+    margin: 10px 0 5px;
+    text-align: left;
+}
+
+/* Selectores */
+select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Contenedor de nombres de jugadores */
+#player-names {
+    margin-bottom: 20px;
+}
+
+#player-names div {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+#player-names label {
+    font-size: 14px;
+}
+
+#player-names input {
+    width: calc(100% - 10px);
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Botón */
+button {
+    background: #007acc;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #005fa3;
+}
+
+button:active {
+    background: #004882;
+}
