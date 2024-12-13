@@ -9,6 +9,7 @@ body {
     align-items: center;
     height: 100vh;
     color: #333;
+    flex-direction: column; /* Asegura que el contenido esté centrado verticalmente */
 }
 
 form {
@@ -18,6 +19,7 @@ form {
     padding: 20px;
     width: 400px;
     text-align: center;
+    margin-bottom: 30px; /* Añade separación al final */
 }
 
 /* Títulos */
@@ -43,6 +45,7 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
+    box-sizing: border-box; /* Asegura que el padding no cambie el tamaño */
 }
 
 /* Contenedor de nombres de jugadores */
@@ -66,6 +69,7 @@ select {
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 14px;
+    box-sizing: border-box; /* Añade para asegurarse que los elementos no sobrepasen el contenedor */
 }
 
 /* Botón */
@@ -78,6 +82,7 @@ button {
     cursor: pointer;
     font-size: 16px;
     transition: background 0.3s ease;
+    width: 100%; /* Asegura que el botón ocupe todo el ancho */
 }
 
 button:hover {
